@@ -1,0 +1,23 @@
+{
+  "name": "vas-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SaveryIV/VAS-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SaveryIV/VAS-project/issues"
+  },
+  "homepage": "https://github.com/SaveryIV/VAS-project#readme",
+  "dependencies": {
+    "html5-qrcode": "^2.3.8"
+  }
+}
