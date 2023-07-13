@@ -16,6 +16,8 @@ const scanner = new Html5QrcodeScanner('reader', {
     fps: 20,
 });
 
+console.log(Html5QrcodeScanner);
+
 scanner.render(succes, error);
 
 function succes(result) {
