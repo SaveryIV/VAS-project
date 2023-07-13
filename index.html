@@ -1,31 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Código QR con Javascript</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="estilos.css" />
-		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-		<script defer src="app.js"></script>
-		<script defer src="./node_modules/html5-qrcode/html5-qrcode.min.js"></script>
-	</head>
-	<body>
-        <p><a href="scanner.html">To the Scanner</a></p>
-		<div class="contenedor">
-			<form action="" id="formulario" class="formulario">
-				<input type="text" id="link" placeholder="Escribe el texto o URL">
-				<button class="btn">Generar QR</button>
-			</form>
-			<div id="contenedorQR" class="contenedorQR"></div>
-			<br>
-			<hr>
-			<br>
-			<div id="reader"></div>
-			<div id="result"></div>
-		</div>
-	</body>
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.4/html5-qrcode.min.js" integrity="sha512-k/KAe4Yff9EUdYI5/IAHlwUswqeipP+Cp5qnrsUjTPCgl51La2/JhyyjNciztD7mWNKLSXci48m7cctATKfLlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+main {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+#reader {
+width: 600px;
+}
+#result {
+text-align: center;
+font-size: 1.5rem;
+}
+</style>
+<main>
+<div id="reader"></div>
+<div id="result"></div>
+</main>
+<script>
+const scanner = new Html5QrcodeScanner('reader', {
+qrbox: {
+width: 250,
+height: 250,
+},
+fps: 20,
+});
+scanner.render(success, error);
+function success(result) {
+document.getElementById('result').innerHTML = `
+<h2>Success!</h2>
+<p><a href="${result}">${result}</a></p>
+`;
+scanner.clear();
+document.getElementById('reader').remove();
+}
+function error(err) {
+console.error(err);
+}
+</script>
+  
+</body>
 </html>
